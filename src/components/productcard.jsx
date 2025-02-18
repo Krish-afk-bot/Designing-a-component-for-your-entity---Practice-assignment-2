@@ -1,24 +1,61 @@
 // write product card here
-import React from "react";
-import ViewProductButton from "../component/button"; // Importing the button component
+import React from 'react';
+import Button from '../components/button';
 
 const Productcard = () => {
-  // Static product details
-  const productImage = "https://via.placeholder.com/150";
-  const productName = "Sample Product";
-  const productPrice = "$49.99";
+  const productImage = 'src/assets/bluetooth.jpeg';
+  const productName = 'Wireless Bluetooth Headphones';
+  const productPrice = '$49.99';
+
+  const handleViewProduct = () => {
+    alert(Viewing ${productName});
+  };
 
   return (
-    <div className="border p-4 rounded-md shadow-md bg-white w-64">
-      <img src={productImage} alt={productName} className="w-full h-40 object-cover rounded-md" />
-      <h2 className="text-lg font-semibold mt-2">{productName}</h2>
-      <p className="text-gray-600 mt-1">{productPrice}</p>
-      <div className="mt-3">
-        <ViewProductButton />
-      </div>
+    <div style={styles.card}>
+      <img 
+        src={productImage} 
+        alt={productName} 
+        style={styles.productImage} 
+      />
+      <h2 style={styles.productName}>{productName}</h2>
+      <p style={styles.productPrice}>{productPrice}</p>
+      <Button onClick={handleViewProduct}>View Product</Button>
     </div>
   );
 };
 
-export default Productcard;
+const styles = {
+  card: {
+    backgroundColor: '#ffffff',
+    borderRadius: '12px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    padding: '16px',
+    maxWidth: '250px',
+    margin: '16px',
+    textAlign: 'center',
+    transition: 'transform 0.2s',
+    ':hover': {
+      transform: 'translateY(-4px)'
+    }
+  },
+  productImage: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '8px',
+    marginBottom: '12px'
+  },
+  productName: {
+    margin: '0 0 8px 0',
+    color: '#333333',
+    fontSize: '1.2em'
+  },
+  productPrice: {
+    margin: '0 0 16px 0',
+    color: '#007bff',
+    fontSize: '1.1em',
+    fontWeight: 'bold'
+  }
+};
 
+export default Productcard;

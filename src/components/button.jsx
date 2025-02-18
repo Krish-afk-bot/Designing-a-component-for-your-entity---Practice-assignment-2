@@ -1,12 +1,28 @@
 // write button card here
-import React from "react";
+import React from 'react';
 
-const ViewProductButton = () => {
+const Button = ({ onClick, children }) => {
   return (
-    <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
-      View Product
+    <button style={styles.button} onClick={onClick}>
+      {children}
     </button>
   );
 };
 
-export default ViewProductButton;
+const styles = {
+  button: {
+    backgroundColor: '#007bff',
+    color: '#ffff',
+    border: 'none',
+    borderRadius: '4px',
+    padding: '10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+    ':hover': {
+      backgroundColor: '#0056b3'
+    }
+  }
+};
+
+export default Button;
